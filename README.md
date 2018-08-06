@@ -40,7 +40,7 @@ JustWebView 0.1 版本在测试阶段，但是基本的功能都已实现，可�
        return [msg stringByAppendingString:@"[ syn call]"];
    }
    //test9
-  	- (void) test9:(NSString *) msg :(void (^)(NSString 	* 	_Nullable result,id data))completionHandler
+  	- (void) test9:(NSString *) msg :(void (^)(NSString 	* _Nullable result,id data))completionHandler
 	{
     	completionHandler(@"test2",@"323");
 	}
