@@ -3,7 +3,7 @@
 ![dsBridge](https://github.com/taosiyu/JustWebViewPro/raw/master/img/top.png)
 
 
-![](https://img.shields.io/badge/language-object--c-yellow.svg) ![support](https://img.shields.io/badge/support-IOS%208%2B-green.svg)
+![language](https://img.shields.io/badge/language-object--c-yellow.svg) ![support](https://img.shields.io/badge/support-IOS%208%2B-green.svg)
 > ios端易用的内嵌JSbridge的WKWebView， 通过它，你可以在Javascript和原生之间调用彼此的函数.
 
 ### 注意
@@ -40,10 +40,10 @@ JustWebView 0.1 版本在测试阶段，但是基本的功能都已实现，可�
        return [msg stringByAppendingString:@"[ syn call]"];
    }
    //test9
-  - (void) test9:(NSString *) msg :(void (^)(NSString * _Nullable result,id data))completionHandler
-{
-    completionHandler(@"test2",@"323");
-}
+  - (void) test9:(NSString *) msg :(void (^)(NSString * 	_Nullable result,id data))completionHandler
+	{
+    	completionHandler(@"test2",@"323");
+	}
    @end 
    ```
 	##### 这里的回调函数是标准格式，如果需要有回调函数，请放在方法最后声明，并按照上述的格式使用
