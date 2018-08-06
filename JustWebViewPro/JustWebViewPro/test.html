@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-cmn-Hans">
+    <meta charset="UTF-8">
+    <title>DSBridge Test</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=0.5,user-scalable=no"/>
+</head>
+<style>
+    .btn {
+        text-align: center;
+        background: #eee;
+        color: #000;
+        padding: 20px;
+        margin: 30px;
+        font-size: 24px;
+        border-radius: 4px;
+        box-shadow: 4px 2px 10px #999;
+    }
+
+    .btn:active {
+        opacity: .7;
+        box-shadow: 4px 2px 10px #555;
+    }
+
+
+
+</style>
+<body>
+<div class="btn" onclick="test2()">Call test</div>
+<div class="btn" onclick="callNative()">Call Native with callback</div>
+<div class="btn" onclick="test4()">Call test4</div>
+<div class="btn" onclick="test3('adsda')">Call test3</div>
+<script>
+    
+    function test(){
+        this.justToNative("testfun", "test","['这是测试']","");
+    }
+
+    function test3(str) {
+        var list = new Array();
+        list.push(str);
+        var str = "['"+ list.toString() + "','这是测试test3" + "']";
+        alert(str);
+        this.justToNative("testfun", "test3string",str);
+    }
+
+    //推荐使用这种方法，方便调用
+    function test4() {
+        window.webkit.messageHandlers.testfun.postMessage({method:"test4",params:["test4"]});
+    }
+
+    function callNative() {
+        this.justToNative("testfun", "test9","['name']","callcell");
+    }
+
+    function callcell(args) {
+        var str = "回调函数被调用" + args;
+        alert(str);
+    }
+
+
+
+
+
+
+</script>
+</body>
+</html>
